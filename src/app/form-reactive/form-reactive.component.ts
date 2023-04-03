@@ -27,6 +27,12 @@ export class FormReactiveComponent implements OnInit {
     }
     return null; // Si la validación es exitosa, retornamos null
   }
+
+  get nombreRequerido() {
+    const control = this.form.get('nombre');
+    return control ? control.touched && control.hasError('required') : false;
+  }
+  
   
 
 }

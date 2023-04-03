@@ -2,9 +2,11 @@
     <form [formGroup]="form">
       <div class="mb-3">
         <label for="nombre" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id="nombre" formControlName="nombre" placeholder="Ingrese su nombre">
+        <input     [ngClass]="{'is-invalid': nombreRequerido}"
+
+        type="text" class="form-control" id="nombre" formControlName="nombre" placeholder="Ingrese su nombre">
         <div *ngIf="form.get('nombre')?.touched">
-            <small  *ngIf="form.get('nombre')?.hasError('required')">El nombre es requerido</small> 
+            <small  *ngIf="form.get('nombre')?.hasError('required')" class="invalid-feedback">El nombre es requerido</small> 
             <small  *ngIf="form.get('nombre')?.hasError('minlength')">Se requiere un nombre mínmimo de 4 carácteres</small>
         </div>
       </div>
