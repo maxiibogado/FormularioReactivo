@@ -30,9 +30,23 @@ export class FormReactiveComponent implements OnInit {
 
   get nombreRequerido() {
     const control = this.form.get('nombre');
-    return control ? control.touched && control.hasError('required') : false;
+    return control ? (control.touched && (control.hasError('required')|| control.hasError('minlenght')))  : false;
+  }
+
+  get apellidoRequerido() {
+    const control = this.form.get('apellido');
+    return control ? (control.touched && (control.hasError('required')|| control.hasError('minlength')))  : false;
+  }
+
+  get emailRequerido() {
+    const control = this.form.get('email');
+    return control ? (control.touched && control.hasError('required')|| control.hasError('minlenght')) : false;
   }
   
+  get telefonoRequerido() {
+    const control = this.form.get('telefono');
+    return control ? control.touched && control.hasError('required') : false;
+  }
   
 
 }

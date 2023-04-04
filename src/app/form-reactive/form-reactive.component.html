@@ -1,42 +1,90 @@
 <div class="container mt-5">
-    <form [formGroup]="form">
-      <div class="mb-3">
-        <label for="nombre" class="form-label">Nombre</label>
-        <input     [ngClass]="{'is-invalid': nombreRequerido}"
-
-        type="text" class="form-control" id="nombre" formControlName="nombre" placeholder="Ingrese su nombre">
-        <div *ngIf="form.get('nombre')?.touched">
-            <small  *ngIf="form.get('nombre')?.hasError('required')" class="invalid-feedback">El nombre es requerido</small> 
-            <small  *ngIf="form.get('nombre')?.hasError('minlength')">Se requiere un nombre mínmimo de 4 carácteres</small>
-        </div>
+  <form [formGroup]="form">
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input
+        [ngClass]="{ 'is-invalid': nombreRequerido }"
+        type="text"
+        class="form-control"
+        id="nombre"
+        formControlName="nombre"
+        placeholder="Ingrese su nombre"
+      />
+      <div *ngIf="form.get('nombre')?.touched">
+        <small 
+          *ngIf="form.get('nombre')?.hasError('required')"
+          >El nombre es requerido</small
+        >
+        <small *ngIf="form.get('nombre')?.hasError('minlength')"
+          >Se requiere un nombre mínmimo de 4 carácteres</small
+        >
       </div>
-      <div class="mb-3">
-        <label for="apellido" class="form-label">Apellido</label>
-        <input  type="text" class="form-control" id="apellido" formControlName="apellido" placeholder="Ingrese su apellido">
-        <div *ngIf="form.get('apellido')?.touched">
-            <small  *ngIf="form.get('apellido')?.hasError('required')">El apellido es requerido</small> 
-            <small  *ngIf="form.get('apellido')?.hasError('minlength')">Se requiere un apellido mínmimo de 4 carácteres</small>
-        </div>
+    </div>
+    <div class="mb-3">
+      <label for="apellido" class="form-label">Apellido</label>
+      <input
+        [ngClass]="{ 'is-invalid': apellidoRequerido }"
+        type="text"
+        class="form-control"
+        id="apellido"
+        formControlName="apellido"
+        placeholder="Ingrese su apellido"
+      />
+      <div *ngIf="form.get('apellido')?.touched">
+        <small
+          *ngIf="form.get('apellido')?.hasError('required')"
+          >El apellido es requerido</small
+        >
+        <small *ngIf="form.get('apellido')?.hasError('minlength')"
+          >Se requiere un apellido mínmimo de 4 carácteres</small
+        >
       </div>
-      <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
-        <input type="email" class="form-control" id="email" formControlName="email" placeholder="Ingrese su email">
-        <div *ngIf="form.get('email')?.touched">
-            <small  *ngIf="form.get('email')?.hasError('required')">El email es requerido</small> 
-            <small  *ngIf="form.get('email')?.hasError('email')">Email Invalido</small>
-            <small  *ngIf="form.get('email')?.hasError('comEmail')">Se requiere que termine con .com</small>
-
-        </div>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input
+        type="email"
+        [ngClass]="{ 'is-invalid': emailRequerido }"
+        class="form-control"
+        id="email"
+        formControlName="email"
+        placeholder="Ingrese su email"
+      />
+      <div *ngIf="form.get('email')?.touched">
+        <small
+          *ngIf="form.get('email')?.hasError('required')"
+          >El email es requerido</small
+        >
+        <small *ngIf="form.get('email')?.hasError('email')"
+          >Email Invalido</small
+        >
+        <small *ngIf="form.get('email')?.hasError('comEmail')"
+          >Se requiere que termine con .com</small
+        >
       </div>
-      <div class="mb-3">
-        <label for="telefono" class="form-label">Teléfono</label>
-        <input type="text" class="form-control" id="telefono" formControlName="telefono" placeholder="Ingrese su teléfono">
-        <div *ngIf="form.get('telefono')?.touched">
-            <small  *ngIf="form.get('telefono')?.hasError('required')">El telefono es requerido</small> 
-            <small  *ngIf="form.get('telefono')?.hasError('minlength')">Se requiere un telefono mínmimo de 8 carácteres</small>
-        </div>
+    </div>
+    <div class="mb-3">
+      <label for="telefono" class="form-label">Teléfono</label>
+      <input
+        type="text"
+        [ngClass]="{ 'is-invalid': telefonoRequerido }"
+        class="form-control"
+        id="telefono"
+        formControlName="telefono"
+        placeholder="Ingrese su teléfono"
+      />
+      <div *ngIf="form.get('telefono')?.touched">
+        <small
+          *ngIf="form.get('telefono')?.hasError('required')"
+          >El telefono es requerido</small
+        >
+        <small *ngIf="form.get('telefono')?.hasError('minlength')"
+          >Se requiere un telefono mínmimo de 8 carácteres</small
+        >
       </div>
-      <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Enviar</button>
-    </form>
-  </div>
-  
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!form.valid">
+      Enviar
+    </button>
+  </form>
+</div>
